@@ -7,7 +7,7 @@ from rcl_interfaces.msg import SetParametersResult
 # Definición de la clase del nodo
 class SetPointPublisher(Node):
     def __init__(self):
-        super().__init__('Input_deepsilk')  # Cambio aquí
+        super().__init__('Input_deepsilk')  
 
         self.declare_parameter('speed_rpm', 0.0)
         self.declare_parameter('signal_type', 'sine')
@@ -16,14 +16,14 @@ class SetPointPublisher(Node):
         self.timer_period = 0.0002439
 
         # Publicador en el tópico /set_point_deepsilk
-        self.signal_publisher = self.create_publisher(Float32, 'set_point_deepsilk', 100)  # Cambio aquí
+        self.signal_publisher = self.create_publisher(Float32, 'set_point_deepsilk', 100)  
 
         self.timer = self.create_timer(self.timer_period, self.timer_cb)
 
         # Suscriptor al tópico /motor_output_deepsilk
         self.motor_output_subscriber = self.create_subscription(
             Float32,
-            'motor_output_deepsilk',  # Cambio aquí
+            'motor_output_deepsilk',  
             self.motor_output_callback,
             100
         )
