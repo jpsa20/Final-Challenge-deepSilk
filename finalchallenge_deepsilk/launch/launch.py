@@ -7,8 +7,8 @@ def generate_launch_description():
         # Nodo principal de generación de señales
         Node(
             package='finalchallenge_deepsilk',
-            executable='Input_deepsilk',  # Cambio aquí
-            name='input_deepsilk',  # Cambio aquí
+            executable='Input_deepsilk',  
+            name='input_deepsilk',  
             output='screen',
             parameters=[
                 {'speed_rpm': 150.0},
@@ -22,7 +22,7 @@ def generate_launch_description():
             executable='rqt_plot',
             name='plot',
             output='screen',
-            arguments=['/set_point_deepsilk/data', '/motor_output_deepsilk/data'],  # Cambio aquí
+            arguments=['/set_point_deepsilk/data', '/motor_output_deepsilk/data'],  
         ),
 
         # Nodo para reconfiguración dinámica (rqt_reconfigure)
